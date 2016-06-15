@@ -31,7 +31,7 @@ import java.io.File;
 public class Jeopardy implements ActionListener {
 	private JButton firstButton;
 	private JButton secondButton;
-	private JButton thirdButton, fourthButton;
+	private JButton thirdButton, fourthButton, fifthButton;
 	
 	private JPanel quizPanel;
 	int score = 0;
@@ -59,18 +59,27 @@ public class Jeopardy implements ActionListener {
 		frame.add(quizPanel);
 		
 		// 6. Use the createButton method to set the value of firstButton 
-		firstButton = createButton("100");
+		firstButton = createButton("$200");
 	// 7. Add the firstButton to the quizPanel
 		quizPanel.add(firstButton);
 		// 8. Write the code inside the createButton() method below. Check that your game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
 		
 		// 9. Use the secondButton variable to hold a button using the createButton method
-		secondButton = createButton("200");
+		secondButton = createButton("$400");
 		// 10. Add the secondButton to the quizPanel
 		quizPanel.add(secondButton);
+		thirdButton = createButton("$600");
+		quizPanel.add(thirdButton);
+		fourthButton = createButton("$800");
+		quizPanel.add(fourthButton);
+		fifthButton = createButton("$1000");
+		quizPanel.add(fifthButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
-		firstButton.addActionListener(null);
-		secondButton.addActionListener(null);
+		firstButton.addActionListener(this);
+		secondButton.addActionListener(this);
+		thirdButton.addActionListener(this);
+		fourthButton.addActionListener(this);
+		fifthButton.addActionListener(this);
 		// 12. Fill in the actionPerformed() method below
 				
 		frame.pack();
@@ -108,18 +117,35 @@ public class Jeopardy implements ActionListener {
 		// If the buttonPressed was the firstButton
 		if (buttonPressed.equals(firstButton)){
 			// Call the askQuestion() method
-			askQuestion("Who said this:'IT'S TIME TO STOP!'", "Papa Franku", 100);
+			askQuestion("Who said this:'IT'S TIME TO STOP!'", "Papa Franku", 200);
 			// Fill in the askQuestion() method. When you play the game, the score should change.
+			firstButton.setText(null);
 		}
 		// Or if the buttonPressed was the secondButton
-
+		else if (buttonPressed.equals(secondButton)) {
 
 			// Call the askQuestionRecipe with a harder question
-			
+			askQuestion("Which TV show houses the most memes?", "SpongeBob SquarePants", 400);
 		
 		// Clear the button text (set the button text to nothing)
-		
-	}
+			secondButton.setText(null);
+		} else if (buttonPressed.equals(thirdButton)) {
+			
+			askQuestion("What meme would you use to create an intance in which you would be surprised?", "Caveman SpongeBob", 600);
+			
+			thirdButton.setText(null);
+		} else if (buttonPressed.equals(fourthButton)) {
+			
+			askQuestion("What is the oldest dead frog meme?", "PePe", 800);
+			
+			fourthButton.setText(null);
+		} else if (buttonPressed.equals(fifthButton)) {
+			
+			askQuestion("What is a meme?", "The answer", 1000);
+			
+			fifthButton.setText(null);
+		}
+		}
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
 		// Remove this temporary message
@@ -129,20 +155,21 @@ public class Jeopardy implements ActionListener {
 		// If the answer is correct
 		if (answer.equalsIgnoreCase(correctAnswer)){
 			// Increase the score by the prizeMoney
-			score=+prizeMoney;
+			score=score+prizeMoney;
 			// Call the updateScore() method
 			updateScore();
 			// Pop up a message to tell the user they were correct
 			JOptionPane.showMessageDialog(null, "Atta kid");
-		} else
+		} else {
 		// Otherwise
 		
 			// Decrement the score by the prizeMoney
-			score=-prizeMoney;
+			score=score-prizeMoney;
 			// Pop up a message to tell the user the correct answer
 			JOptionPane.showMessageDialog(null, "Ya scrub. The correct answer was "+correctAnswer);
 			// Call the updateScore() method
 			updateScore();
+		}
 	}
 		
 	
