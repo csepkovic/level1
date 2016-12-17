@@ -5,22 +5,20 @@ package level1;
 		private Pencil pencil;
 		private Ruler ruler;
 		private Textbook textbook;
-
+		private Paper paper;
 
 		BackPack(){
 			System.out.println("Nice Backpack");
+			
+			pencil  = new Pencil ();
+			ruler  = new Ruler ();
+			textbook = new Textbook ();
+			paper = new Paper ();
 		}
 		
 		public static void main (String[] args){
 			/* Your mission is to get to school, but first you need to get all of your supplies into your backpack. */
 			BackPack pack = new BackPack ();
-			Pencil lapiz = new Pencil ();
-			Ruler elruler = new Ruler ();
-			Textbook textboook = new Textbook ();
-			pack.putInBackpack (lapiz);
-			pack.putInBackpack(paper);
-			pack.putInBackpack(elruler);
-			pack.putInBackpack(textboook);
 			pack.goToSchool();
 
 
@@ -39,7 +37,7 @@ package level1;
 			}else if(supply instanceof Textbook){
 				this.textbook = (Textbook) supply;
 				System.out.println("You put your textbook in your Backpack");
-			}else if{
+			}else if (supply instanceof Paper){
 				this.paper = (Paper) supply;
 				System.out.println("You put your paper in your Backpack");
 			}

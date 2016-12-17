@@ -10,7 +10,7 @@ import info.gridworld.world.World;
 
 public class AmericanGrid {
 public static void main(String[] args) {
-	World AmericanFlag = 
+	World AmericanFlag = new World ();
 	Flower f1 = new Flower (Color.blue);
 	Flower f2 = new Flower (Color.white);
 	Flower f3 = new Flower (Color.red);
