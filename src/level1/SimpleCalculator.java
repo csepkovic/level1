@@ -23,6 +23,8 @@ public class SimpleCalculator implements MouseListener {
 		
 	public void createUI() {
 		calculator.add(panel);
+		number1.setSize(100, 100);
+		number2.setSize(100, 100);
 		panel.add(number1);
 		panel.add(number2);
 		panel.add(add);
@@ -30,11 +32,11 @@ public class SimpleCalculator implements MouseListener {
 		panel.add(sub);
 		panel.add(div);
 		panel.add(product);
-		calculator.pack();
 		add.setText("Add");
 		multi.setText("Multiply");
 		sub.setText("Subtract");
 		div.setText("Divide");
+		calculator.pack();
 		add.addMouseListener(this);
 		multi.addMouseListener(this);
 		sub.addMouseListener(this);
