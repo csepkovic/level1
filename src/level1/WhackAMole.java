@@ -49,8 +49,7 @@ public class WhackAMole implements ActionListener{
 		frame.setVisible(true);
 		frame.pack();
 	}
-	public void drawButtons () {
-		int rand = new Random().nextInt(9);
+	public void drawButtons (int rand) {
 		if (rand==0) {
 			button1.setText("bang");
 		} if (rand==1) {
@@ -74,7 +73,8 @@ public class WhackAMole implements ActionListener{
 public static void main(String[] args) {
 	WhackAMole game = new WhackAMole();
 	game.createUI();
-	game.drawButtons();
+	int random = new Random().nextInt(9);
+	game.drawButtons(random);
 	
 }
 @Override
@@ -83,7 +83,8 @@ public void actionPerformed(ActionEvent e) {
 	JButton b = (JButton)e.getSource();
 	String text = b.getText();
 	if (text.equals("bang")) {
-		
+		int random = new Random().nextInt(9);
+		game.drawButtons(random);
 	}
 }
 
