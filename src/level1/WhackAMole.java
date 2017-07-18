@@ -9,6 +9,7 @@ import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class WhackAMole implements ActionListener{
@@ -82,9 +83,28 @@ public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
 	JButton b = (JButton)e.getSource();
 	String text = b.getText();
+	System.out.println(text);
 	if (text.equals("bang")) {
-		int random = new Random().nextInt(9);
-		game.drawButtons(random);
+		button1.setText("");
+		button2.setText("");
+		button3.setText("");
+		button4.setText("");
+		button5.setText("");
+		button6.setText("");
+		button7.setText("");
+		button8.setText("");
+		button9.setText("");
+		int rand = new Random().nextInt(9);
+		drawButtons(rand);
+	} else {
+		int random = new Random().nextInt(3);
+		if (random==1){
+			JOptionPane.showMessageDialog(null, "You suck haaa");
+		} else if (random==2){
+			JOptionPane.showMessageDialog(null, "You're bad at this");
+		} else if (random==3){
+			JOptionPane.showMessageDialog(null, "Dude the answer is obvious");
+		}
 	}
 }
 
