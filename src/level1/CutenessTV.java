@@ -14,7 +14,7 @@ JButton button2 = new JButton();
 JButton button3 = new JButton();
 public void createUI () {
 	frame.add(panel);
-	frame.setSize(width, height);
+	frame.setSize(0, 0);
 	panel.setLayout(new GridLayout(3, 1));
 	panel.add(button1);
 	panel.add(button2);
