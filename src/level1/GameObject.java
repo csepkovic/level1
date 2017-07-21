@@ -7,17 +7,17 @@ public class GameObject {
 	int y;
 	int width;
 	int height;
+	boolean isAlive;
 
 	public GameObject() {
-
+		isAlive = true;
 	}
 
 	void update() {
-		x++;
-		y++;
+
 	}
 
 	void draw(Graphics g) {
-		g.fillRect(x, y, 100, 100);
+		
 	}
 }
