@@ -30,6 +30,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font E2;
 	Font R;
 	Font pressBackspace;
+	Font score;
+	Font scoreNumber;
 	RocketShip ship;
 	ObjectManager manager;
 	public GamePanel() {
@@ -46,6 +48,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		E2 = new Font("Hoefler", Font.BOLD, 110);
 		R = new Font("Hoefler", Font.BOLD, 105);
 		pressBackspace = new Font("Comic Sans", Font.PLAIN, 24);
+		score = new Font("Hoefler", Font.BOLD, 48);
+		scoreNumber = new Font("Hoefler", Font.BOLD, 48);
 		ship = new RocketShip(250, 700, 50, 50, 0);
 		manager = new ObjectManager();
 		manager.addObject(ship);
@@ -61,6 +65,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	void updateGameState() {
 		manager.update();
+		manager.manageEnemies();
 	}
 
 	void updateEndState() {
@@ -86,37 +91,38 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	void drawEndState(Graphics g) {
-		int randomX = new Random().nextInt(10);
+		Random rand = new Random();
+		int randomX = rand.nextInt(10);
 		randomX -= 5;
-		int randomY = new Random().nextInt(10);
+		int randomY = rand.nextInt(10);
 		randomY -= 5;
-		int randomX1 = new Random().nextInt(10);
+		int randomX1 = rand.nextInt(10);
 		randomX -= 5;
-		int randomY1 = new Random().nextInt(10);
+		int randomY1 = rand.nextInt(10);
 		randomY -= 5;
-		int randomX2 = new Random().nextInt(10);
+		int randomX2 = rand.nextInt(10);
 		randomX -= 5;
-		int randomY2 = new Random().nextInt(10);
+		int randomY2 = rand.nextInt(10);
 		randomY -= 5;
-		int randomX3 = new Random().nextInt(10);
+		int randomX3 = rand.nextInt(10);
 		randomX -= 5;
-		int randomY3 = new Random().nextInt(10);
+		int randomY3 = rand.nextInt(10);
 		randomY -= 5;
-		int randomX4 = new Random().nextInt(10);
+		int randomX4 = rand.nextInt(10);
 		randomX -= 5;
-		int randomY4 = new Random().nextInt(10);
+		int randomY4 = rand.nextInt(10);
 		randomY -= 5;
-		int randomX5 = new Random().nextInt(10);
+		int randomX5 = rand.nextInt(10);
 		randomX -= 5;
-		int randomY5 = new Random().nextInt(10);
+		int randomY5 = rand.nextInt(10);
 		randomY -= 5;
-		int randomX6 = new Random().nextInt(10);
+		int randomX6 = rand.nextInt(10);
 		randomX -= 5;
-		int randomY6 = new Random().nextInt(10);
+		int randomY6 = rand.nextInt(10);
 		randomY -= 5;
-		int randomX7 = new Random().nextInt(10);
+		int randomX7 = rand.nextInt(10);
 		randomX -= 5;
-		int randomY7 = new Random().nextInt(10);
+		int randomY7 = rand.nextInt(10);
 		randomY -= 5;
 		g.setColor(Color.RED);
 		g.fillRect(0, 0, 500, 800);
@@ -137,12 +143,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.drawString("E", 285 + randomX6, 250 + randomY6);
 		g.setFont(R);
 		g.drawString("R", 365 + randomX7, 260 + randomY7);
+		g.setFont(score);
+		int randomX8 = new Random().nextInt(6);
+		randomX8 -= 3;
+		int randomY8 = new Random().nextInt(6);
+		randomY8 -= 3;
+		g.drawString("SCORE:", 100 + randomX8, 400 + randomY8);
 		g.setFont(pressBackspace);
-		int randomX8 = new Random().nextInt(4);
+		int randomX9 = new Random().nextInt(4);
 		randomX8 -= 2;
-		int randomY8 = new Random().nextInt(4);
+		int randomY9 = new Random().nextInt(4);
 		randomY8 -= 2;
-		g.drawString("Press BACKSPACE to try again", 80 + randomX8, 500 + randomY8);
+		g.drawString("Press ENTER to try again", 105 + randomX9, 500 + randomY9);
 	}
 
 	public void paintComponent(Graphics g) {

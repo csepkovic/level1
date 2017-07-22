@@ -5,15 +5,17 @@ import javax.swing.JFrame;
 public class LeagueInvaders {
 	JFrame frame;
 	GamePanel panel;
-
-	public LeagueInvaders() {
+	static int width = 500;
+	int height = 800;
+	public LeagueInvaders(int width, int height) {
+		this.width = width;
+		this.height = height;
 		frame = new JFrame();
 		panel = new GamePanel();
 		setup();
 	}
 
-	int width = 500;
-	int height = 800;
+
 
 	void setup() {
 		frame.add(panel);
@@ -25,6 +27,6 @@ public class LeagueInvaders {
 	}
 
 	public static void main(String[] args) {
-		LeagueInvaders game = new LeagueInvaders();
+		LeagueInvaders game = new LeagueInvaders(500, 800);
 	}
 }
