@@ -1,0 +1,147 @@
+
+!ENTRY org.eclipse.mylyn.tasks.core 4 0 2017-07-24 10:47:29.973
+!MESSAGE Could not write: /Users/league/Desktop/Level1/.metadata/.mylyn/repositories.xml.zip
+!STACK 0
+java.io.IOException: No such file or directory
+	at java.io.UnixFileSystem.createFileExclusively(Native Method)
+	at java.io.File.createNewFile(File.java:1012)
+	at org.eclipse.mylyn.internal.tasks.core.TaskRepositoriesExternalizer.writeRepositoriesToXML(TaskRepositoriesExternalizer.java:51)
+	at org.eclipse.mylyn.internal.tasks.core.TaskRepositoryManager.saveRepositories(TaskRepositoryManager.java:422)
+	at org.eclipse.mylyn.internal.tasks.core.RepositoryExternalizationParticipant.save(RepositoryExternalizationParticipant.java:77)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.AbstractExternalizationParticipant.execute(AbstractExternalizationParticipant.java:70)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.ExternalizationManager$ExternalizationJob.run(ExternalizationManager.java:222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.epp.logging.aeri.ui 2 12 2017-07-24 10:47:30.019
+!MESSAGE History service is not (yet) available. Version: 1.0.0.v20150617-0732
+!STACK 0
+org.apache.lucene.store.NoSuchDirectoryException: directory '/Users/league/Desktop/Level1/.metadata/.plugins/org.eclipse.epp.logging.aeri.ui/history' does not exist
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:218)
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:241)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:641)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:593)
+	at org.apache.lucene.index.SegmentInfos.read(SegmentInfos.java:359)
+	at org.apache.lucene.index.SegmentInfos.readCurrentVersion(SegmentInfos.java:480)
+	at org.apache.lucene.index.DirectoryReader.isCurrent(DirectoryReader.java:901)
+	at org.apache.lucene.index.DirectoryReader.doOpenNoWriter(DirectoryReader.java:471)
+	at org.apache.lucene.index.DirectoryReader.doOpenIfChanged(DirectoryReader.java:450)
+	at org.apache.lucene.index.DirectoryReader.doOpenIfChanged(DirectoryReader.java:391)
+	at org.apache.lucene.index.IndexReader.openIfChanged(IndexReader.java:497)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.ReportHistory.renewReaderAndSearcher(ReportHistory.java:149)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.ReportHistory.seen(ReportHistory.java:75)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.ReportHistory.seenSimilar(ReportHistory.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.ReportPredicates$UnseenErrorReportPredicate.apply(ReportPredicates.java:104)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.ReportPredicates$UnseenErrorReportPredicate.apply(ReportPredicates.java:1)
+	at com.google.common.base.Predicates$AndPredicate.apply(Predicates.java:343)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.LogListener.logging(LogListener.java:48)
+	at org.eclipse.core.internal.runtime.RuntimeLog.logToListeners(RuntimeLog.java:161)
+	at org.eclipse.core.internal.runtime.PlatformLogWriter.logged(PlatformLogWriter.java:103)
+	at org.eclipse.osgi.internal.log.ExtendedLogReaderServiceFactory.safeLogged(ExtendedLogReaderServiceFactory.java:88)
+	at org.eclipse.osgi.internal.log.ExtendedLogReaderServiceFactory.logPrivileged(ExtendedLogReaderServiceFactory.java:217)
+	at org.eclipse.osgi.internal.log.ExtendedLogReaderServiceFactory.log(ExtendedLogReaderServiceFactory.java:189)
+	at org.eclipse.osgi.internal.log.ExtendedLogServiceFactory.log(ExtendedLogServiceFactory.java:65)
+	at org.eclipse.osgi.internal.log.ExtendedLogServiceImpl.log(ExtendedLogServiceImpl.java:87)
+	at org.eclipse.osgi.internal.log.LoggerImpl.log(LoggerImpl.java:54)
+	at org.eclipse.core.internal.runtime.Log.log(Log.java:65)
+	at org.eclipse.mylyn.commons.core.StatusHandler.log(StatusHandler.java:47)
+	at org.eclipse.mylyn.internal.tasks.core.TaskRepositoriesExternalizer.writeRepositoriesToXML(TaskRepositoriesExternalizer.java:59)
+	at org.eclipse.mylyn.internal.tasks.core.TaskRepositoryManager.saveRepositories(TaskRepositoryManager.java:422)
+	at org.eclipse.mylyn.internal.tasks.core.RepositoryExternalizationParticipant.save(RepositoryExternalizationParticipant.java:77)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.AbstractExternalizationParticipant.execute(AbstractExternalizationParticipant.java:70)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.ExternalizationManager$ExternalizationJob.run(ExternalizationManager.java:222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.epp.logging.aeri.ui 2 12 2017-07-24 10:47:30.021
+!MESSAGE History service is not (yet) available. Version: 1.0.0.v20150617-0732
+!STACK 0
+org.apache.lucene.store.NoSuchDirectoryException: directory '/Users/league/Desktop/Level1/.metadata/.plugins/org.eclipse.epp.logging.aeri.ui/history' does not exist
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:218)
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:241)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:641)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:593)
+	at org.apache.lucene.index.SegmentInfos.read(SegmentInfos.java:359)
+	at org.apache.lucene.index.SegmentInfos.readCurrentVersion(SegmentInfos.java:480)
+	at org.apache.lucene.index.DirectoryReader.isCurrent(DirectoryReader.java:901)
+	at org.apache.lucene.index.DirectoryReader.doOpenNoWriter(DirectoryReader.java:471)
+	at org.apache.lucene.index.DirectoryReader.doOpenIfChanged(DirectoryReader.java:450)
+	at org.apache.lucene.index.DirectoryReader.doOpenIfChanged(DirectoryReader.java:391)
+	at org.apache.lucene.index.IndexReader.openIfChanged(IndexReader.java:497)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.ReportHistory.renewReaderAndSearcher(ReportHistory.java:149)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.ReportHistory.seen(ReportHistory.java:75)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.ReportHistory.seen(ReportHistory.java:66)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.ReportPredicates$UnseenErrorReportPredicate.apply(ReportPredicates.java:106)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.ReportPredicates$UnseenErrorReportPredicate.apply(ReportPredicates.java:1)
+	at com.google.common.base.Predicates$AndPredicate.apply(Predicates.java:343)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.LogListener.logging(LogListener.java:48)
+	at org.eclipse.core.internal.runtime.RuntimeLog.logToListeners(RuntimeLog.java:161)
+	at org.eclipse.core.internal.runtime.PlatformLogWriter.logged(PlatformLogWriter.java:103)
+	at org.eclipse.osgi.internal.log.ExtendedLogReaderServiceFactory.safeLogged(ExtendedLogReaderServiceFactory.java:88)
+	at org.eclipse.osgi.internal.log.ExtendedLogReaderServiceFactory.logPrivileged(ExtendedLogReaderServiceFactory.java:217)
+	at org.eclipse.osgi.internal.log.ExtendedLogReaderServiceFactory.log(ExtendedLogReaderServiceFactory.java:189)
+	at org.eclipse.osgi.internal.log.ExtendedLogServiceFactory.log(ExtendedLogServiceFactory.java:65)
+	at org.eclipse.osgi.internal.log.ExtendedLogServiceImpl.log(ExtendedLogServiceImpl.java:87)
+	at org.eclipse.osgi.internal.log.LoggerImpl.log(LoggerImpl.java:54)
+	at org.eclipse.core.internal.runtime.Log.log(Log.java:65)
+	at org.eclipse.mylyn.commons.core.StatusHandler.log(StatusHandler.java:47)
+	at org.eclipse.mylyn.internal.tasks.core.TaskRepositoriesExternalizer.writeRepositoriesToXML(TaskRepositoriesExternalizer.java:59)
+	at org.eclipse.mylyn.internal.tasks.core.TaskRepositoryManager.saveRepositories(TaskRepositoryManager.java:422)
+	at org.eclipse.mylyn.internal.tasks.core.RepositoryExternalizationParticipant.save(RepositoryExternalizationParticipant.java:77)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.AbstractExternalizationParticipant.execute(AbstractExternalizationParticipant.java:70)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.ExternalizationManager$ExternalizationJob.run(ExternalizationManager.java:222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.mylyn.tasks.core 2 0 2017-07-24 10:47:30.052
+!MESSAGE Save failed for Task List
+!STACK 1
+org.eclipse.core.runtime.CoreException: Saving Task List failed
+	at org.eclipse.mylyn.internal.tasks.core.externalization.TaskListExternalizer.writeTaskList(TaskListExternalizer.java:128)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.TaskListExternalizationParticipant$2.execute(TaskListExternalizationParticipant.java:129)
+	at org.eclipse.mylyn.internal.tasks.core.TaskList.run(TaskList.java:673)
+	at org.eclipse.mylyn.internal.tasks.core.TaskList.run(TaskList.java:664)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.TaskListExternalizationParticipant.save(TaskListExternalizationParticipant.java:133)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.AbstractExternalizationParticipant.execute(AbstractExternalizationParticipant.java:70)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.ExternalizationManager$ExternalizationJob.run(ExternalizationManager.java:222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.io.FileNotFoundException: /Users/league/Desktop/Level1/.metadata/.mylyn/tasks.xml.zip (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:162)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.TaskListExternalizer.writeTaskList(TaskListExternalizer.java:109)
+	... 7 more
+!SUBENTRY 1 org.eclipse.mylyn.tasks.core 4 0 2017-07-24 10:47:30.053
+!MESSAGE Saving Task List failed
+!STACK 0
+java.io.FileNotFoundException: /Users/league/Desktop/Level1/.metadata/.mylyn/tasks.xml.zip (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:162)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.TaskListExternalizer.writeTaskList(TaskListExternalizer.java:109)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.TaskListExternalizationParticipant$2.execute(TaskListExternalizationParticipant.java:129)
+	at org.eclipse.mylyn.internal.tasks.core.TaskList.run(TaskList.java:673)
+	at org.eclipse.mylyn.internal.tasks.core.TaskList.run(TaskList.java:664)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.TaskListExternalizationParticipant.save(TaskListExternalizationParticipant.java:133)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.AbstractExternalizationParticipant.execute(AbstractExternalizationParticipant.java:70)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.ExternalizationManager$ExternalizationJob.run(ExternalizationManager.java:222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.ide 4 4 2017-07-24 10:50:45.414
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 4 1 2017-07-24 10:50:45.415
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 4 568 2017-07-24 10:50:45.415
+!MESSAGE Could not write workspace metadata '/Users/league/Desktop/Level1/.metadata/.plugins/org.eclipse.core.resources/.root/1.tree'.
+!STACK 0
+java.io.FileNotFoundException: /Users/league/Desktop/Level1/.metadata/.plugins/org.eclipse.core.resources/.root/1.tree (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:162)
+	at org.eclipse.core.internal.localstore.SafeFileOutputStream.<init>(SafeFileOutputStream.java:51)
+	at org.eclipse.core.internal.resources.SaveManager.saveTree(SaveManager.java:1406)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1188)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2270)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor$4.run(IDEWorkbenchAdvisor.java:453)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)

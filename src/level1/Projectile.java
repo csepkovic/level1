@@ -7,7 +7,7 @@ public class Projectile extends GameObject {
 	int speed;
 
 	public Projectile(int x, int y, int width, int height, int speed) {
-		super();
+		super(x, y, width, height);
 		this.x = x;
 		this.y = y;
 		this.width = width;

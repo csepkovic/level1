@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Alien extends GameObject {
 	public Alien(int x, int y, int width, int height) {
-		super();
+		super(x, y, width, height);
 		this.x = x;
 		if (this.x<25) {
 			this.x=25;
@@ -20,7 +20,7 @@ public class Alien extends GameObject {
 
 	void update() {
 		super.update();
-		y++;
+		y+=4;
 		int random = new Random().nextInt(10);
 		int rand = new Random().nextInt(5);
 		if (random%2==1) {

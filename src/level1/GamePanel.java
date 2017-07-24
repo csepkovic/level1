@@ -30,8 +30,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font E2;
 	Font R;
 	Font pressBackspace;
-	Font score;
+	Font scoreText;
 	Font scoreNumber;
+	Font number0;
 	RocketShip ship;
 	ObjectManager manager;
 	public GamePanel() {
@@ -48,8 +49,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		E2 = new Font("Hoefler", Font.BOLD, 110);
 		R = new Font("Hoefler", Font.BOLD, 105);
 		pressBackspace = new Font("Comic Sans", Font.PLAIN, 24);
-		score = new Font("Hoefler", Font.BOLD, 48);
-		scoreNumber = new Font("Hoefler", Font.BOLD, 48);
+		scoreText = new Font("Hoefler", Font.BOLD, 48);
+		scoreNumber = new Font("Hoefler", Font.BOLD, 75);
+		number0 = new Font("Hoefler", Font.BOLD, 75);
 		ship = new RocketShip(250, 700, 50, 50, 0);
 		manager = new ObjectManager();
 		manager.addObject(ship);
@@ -66,10 +68,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	void updateGameState() {
 		manager.update();
 		manager.manageEnemies();
+		manager.checkCollision();
+		if (ship.isAlive==false) {
+			currentState = END_STATE;
+			manager.reset();
+			ship = new RocketShip(250, 700, 50, 50, 0);
+			manager.addObject(ship);
+		}
 	}
 
 	void updateEndState() {
-
+		
 	}
 
 	void drawMenuState(Graphics g) {
@@ -143,18 +152,32 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.drawString("E", 285 + randomX6, 250 + randomY6);
 		g.setFont(R);
 		g.drawString("R", 365 + randomX7, 260 + randomY7);
-		g.setFont(score);
+		g.setFont(scoreText);
 		int randomX8 = new Random().nextInt(6);
 		randomX8 -= 3;
 		int randomY8 = new Random().nextInt(6);
 		randomY8 -= 3;
-		g.drawString("SCORE:", 100 + randomX8, 400 + randomY8);
-		g.setFont(pressBackspace);
+		g.drawString("SCORE:", 75 + randomX8, 400 + randomY8);
+		g.setFont(pressEnter);
 		int randomX9 = new Random().nextInt(4);
 		randomX8 -= 2;
 		int randomY9 = new Random().nextInt(4);
 		randomY8 -= 2;
 		g.drawString("Press ENTER to try again", 105 + randomX9, 500 + randomY9);
+		g.setFont(scoreNumber);
+		int randomX10 = new Random().nextInt(8);
+		randomX8 -= 4;
+		int randomY10 = new Random().nextInt(8);
+		randomY8 -= 4;
+		int randomX11 = new Random().nextInt(8);
+		randomX8 -= 4;
+		int randomY11 = new Random().nextInt(8);
+		randomY8 -= 4;
+		int score = manager.getScore();
+		score/=10;
+		g.drawString(""+score, 275 + randomX10, 400 + randomY10);
+		g.setFont(number0);
+		g.drawString("0", 375 + randomX11, 400 + randomY11);
 	}
 
 	public void paintComponent(Graphics g) {
@@ -197,9 +220,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				currentState++;
 			}
 		} if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			ship.speed = 5;;
+			ship.speed = 6;
 		} if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			ship.speed = -5;
+			ship.speed = -6;
 		} if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			manager.addObject(new Projectile(ship.x + 20, ship.y + 20, 10, 10, 10));
 		}

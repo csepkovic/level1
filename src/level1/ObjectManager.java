@@ -44,7 +44,7 @@ public class ObjectManager {
 		}
 	}
 
-	public void manageEnemies(){
+	public void manageEnemies(){ 
 		if(System.currentTimeMillis() - enemyTimer >= enemySpawnTime){
 			addObject(new Alien(new Random().nextInt(LeagueInvaders.width), 0, 50, 50));
 			enemyTimer = System.currentTimeMillis();
@@ -60,7 +60,7 @@ public class ObjectManager {
 				if(o1.collisionBox.intersects(o2.collisionBox)){
 					if((o1 instanceof Alien && o2 instanceof Projectile) ||
 					   (o2 instanceof Alien && o1 instanceof Projectile)){
-						score++;
+						score+=10;
 						System.out.println(score);
 						o1.isAlive = false;
 						o2.isAlive = false;

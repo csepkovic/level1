@@ -7,11 +7,7 @@ import java.awt.Graphics;
 public class RocketShip extends GameObject {
 int speed;
 	public RocketShip(int x, int y, int width, int height, int speed) {
-		super();
-		this.x = x;
-		this.y = y;
-		this.width = width;
-		this.height = height;
+		super(x, y, width, height);
 		this.speed = speed;
 	}
 
