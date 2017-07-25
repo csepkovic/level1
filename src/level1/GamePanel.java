@@ -9,6 +9,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -62,7 +63,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	void updateMenuState() {
-		
+		manager.setScore(0);
 	}
 
 	void updateGameState() {
@@ -225,6 +226,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			ship.speed = -6;
 		} if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			manager.addObject(new Projectile(ship.x + 20, ship.y + 20, 10, 10, 10));
+		} if (e.getKeyCode() == KeyEvent.VK_TAB) {
+			JOptionPane.showMessageDialog(null, "Space: Shoot | Arrow Keys: Move");
 		}
 	}
 

@@ -10,7 +10,7 @@ public class ObjectManager {
 	private int score = 0;
 	
 	long enemyTimer = 0;
-	int enemySpawnTime = 1000;
+	int enemySpawnTime = 200;
 	
 	public ObjectManager() {
 		objects = new ArrayList<GameObject>();
@@ -24,7 +24,14 @@ public class ObjectManager {
 		for (int i = 0; i < objects.size(); i++) {
 			GameObject o = objects.get(i);
 			o.update();
-		}
+			if (o instanceof Alien) {
+				if (((Alien) o).passPlayer) {
+					score-=10;
+					o.isAlive=false;
+					System.out.println(score);
+				}
+			}
+		} 
 		
 		purgeObjects();	
 	}
