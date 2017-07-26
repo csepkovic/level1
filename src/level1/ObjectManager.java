@@ -6,12 +6,13 @@ import java.util.Random;
 
 public class ObjectManager {
 	ArrayList<GameObject> objects;
-	
+
 	private int score = 0;
-	
+
 	long enemyTimer = 0;
-	int enemySpawnTime = 200;
-	
+	int enemySpawnTime = 250;
+	int powerUpSpawnTime = 2000;
+
 	public ObjectManager() {
 		objects = new ArrayList<GameObject>();
 	}
@@ -26,14 +27,14 @@ public class ObjectManager {
 			o.update();
 			if (o instanceof Alien) {
 				if (((Alien) o).passPlayer) {
-					score-=10;
-					o.isAlive=false;
+					score -= 10;
+					o.isAlive = false;
 					System.out.println(score);
 				}
 			}
-		} 
-		
-		purgeObjects();	
+		}
+
+		purgeObjects();
 	}
 
 	public void draw(Graphics g) {
@@ -51,9 +52,17 @@ public class ObjectManager {
 		}
 	}
 
-	public void manageEnemies(){ 
-		if(System.currentTimeMillis() - enemyTimer >= enemySpawnTime){
+	public void manageEnemies() {
+		if (System.currentTimeMillis() - enemyTimer >= enemySpawnTime) {
 			addObject(new Alien(new Random().nextInt(LeagueInvaders.width), 0, 50, 50));
+			enemyTimer = System.currentTimeMillis();
+			enemySpawnTime--;
+		}
+	}
+	
+	public void managePowerUps() {
+		if (System.currentTimeMillis() - enemyTimer >= powerUpSpawnTime) {
+			addObject(new PowerUp(new Random().nextInt(LeagueInvaders.width), 0, 50, 50));
 			enemyTimer = System.currentTimeMillis();
 		}
 	}
@@ -63,35 +72,40 @@ public class ObjectManager {
 			for (int j = i + 1; j < objects.size(); j++) {
 				GameObject o1 = objects.get(i);
 				GameObject o2 = objects.get(j);
-				
-				if(o1.collisionBox.intersects(o2.collisionBox)){
-					if((o1 instanceof Alien && o2 instanceof Projectile) ||
-					   (o2 instanceof Alien && o1 instanceof Projectile)){
+
+				if (o1.collisionBox.intersects(o2.collisionBox)) {
+					if ((o1 instanceof Alien && o2 instanceof Projectile)
+							|| (o2 instanceof Alien && o1 instanceof Projectile)) {
 						score+=10;
+						enemySpawnTime++;
 						System.out.println(score);
 						o1.isAlive = false;
 						o2.isAlive = false;
-					}
-					else if((o1 instanceof Alien && o2 instanceof RocketShip) ||
-							(o2 instanceof Alien && o1 instanceof RocketShip)){
+					} else if ((o1 instanceof Alien && o2 instanceof RocketShip)
+							|| (o2 instanceof Alien && o1 instanceof RocketShip)) {
 						o1.isAlive = false;
 						o2.isAlive = false;
+					} else if ((o1 instanceof PowerUp && o2 instanceof RocketShip)) {
+						o1.isAlive = false;
+						// o2.projectileSpeed+=10;
+					} else if ((o2 instanceof PowerUp && o1 instanceof RocketShip)) {
+						o2.isAlive = false;
+						// o2.projectileSpeed+=10;
 					}
 				}
 			}
 		}
 	}
-	
-	public int getScore(){
+
+	public int getScore() {
 		return score;
 	}
-	
-	public void setScore(int s){
+
+	public void setScore(int s) {
 		score = s;
 	}
-	
-	public void reset(){
+
+	public void reset() {
 		objects.clear();
 	}
 }
-

@@ -48,5 +48,8 @@ public class Alien extends GameObject {
 		g2.setTransform(newRotation);
 		g2.drawRect(x, y, width, height);
 		g2.setTransform(oldRotation);
+		if (rotation>360) {
+			rotation-=360;
+		}
 	}
 }

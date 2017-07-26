@@ -53,7 +53,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		scoreText = new Font("Hoefler", Font.BOLD, 48);
 		scoreNumber = new Font("Hoefler", Font.BOLD, 75);
 		number0 = new Font("Hoefler", Font.BOLD, 75);
-		ship = new RocketShip(250, 700, 50, 50, 0);
+		ship = new RocketShip(250, 700, 50, 50, 0, 0);
 		manager = new ObjectManager();
 		manager.addObject(ship);
 	}
@@ -69,17 +69,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	void updateGameState() {
 		manager.update();
 		manager.manageEnemies();
+		manager.managePowerUps();
 		manager.checkCollision();
 		if (ship.isAlive==false) {
 			currentState = END_STATE;
 			manager.reset();
-			ship = new RocketShip(250, 700, 50, 50, 0);
+			ship = new RocketShip(250, 700, 50, 50, 0, 0);
 			manager.addObject(ship);
 		}
 	}
 
 	void updateEndState() {
-		
+		manager.enemySpawnTime=250;
 	}
 
 	void drawMenuState(Graphics g) {
@@ -225,7 +226,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		} if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			ship.speed = -6;
 		} if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			manager.addObject(new Projectile(ship.x + 20, ship.y + 20, 10, 10, 10));
+			manager.addObject(new Projectile(ship.x + 20, ship.y + 20, 10, 10, 10 + ship.projectileSpeed));
 		} if (e.getKeyCode() == KeyEvent.VK_TAB) {
 			JOptionPane.showMessageDialog(null, "Space: Shoot | Arrow Keys: Move");
 		}
