@@ -7,8 +7,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Random;
 
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -36,6 +39,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font number0;
 	RocketShip ship;
 	ObjectManager manager;
+	public static BufferedImage rocketImg;
 	public GamePanel() {
 		timer = new Timer(1000 / 60, this);
 		titleFont = new Font("Hoefler", Font.BOLD, 48);
@@ -56,6 +60,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		ship = new RocketShip(250, 700, 50, 50, 0, 0);
 		manager = new ObjectManager();
 		manager.addObject(ship);
+		try {
+			rocketImg = ImageIO.read(this.getClass().getResourceAsStream("rocket.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	void startGame() {

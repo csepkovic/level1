@@ -10,8 +10,9 @@ public class ObjectManager {
 	private int score = 0;
 
 	long enemyTimer = 0;
+	long powerUpTimer = 0;
 	int enemySpawnTime = 250;
-	int powerUpSpawnTime = 2000;
+	int powerUpSpawnTime = 10000;
 
 	public ObjectManager() {
 		objects = new ArrayList<GameObject>();
@@ -61,9 +62,9 @@ public class ObjectManager {
 	}
 	
 	public void managePowerUps() {
-		if (System.currentTimeMillis() - enemyTimer >= powerUpSpawnTime) {
+		if (System.currentTimeMillis() - powerUpTimer >= powerUpSpawnTime) {
 			addObject(new PowerUp(new Random().nextInt(LeagueInvaders.width), 0, 50, 50));
-			enemyTimer = System.currentTimeMillis();
+			powerUpTimer = System.currentTimeMillis();
 		}
 	}
 
@@ -85,12 +86,33 @@ public class ObjectManager {
 							|| (o2 instanceof Alien && o1 instanceof RocketShip)) {
 						o1.isAlive = false;
 						o2.isAlive = false;
-					} else if ((o1 instanceof PowerUp && o2 instanceof RocketShip)) {
+					} 
+					else if ((o1 instanceof PowerUp && o2 instanceof RocketShip)) {
 						o1.isAlive = false;
-						// o2.projectileSpeed+=10;
+						int random = new Random().nextInt(2);
+						if (random==1) {
+						((RocketShip)o2).projectileSpeed+=5;
+						} else {
+							if (((RocketShip)o2).width>20) {
+						((RocketShip)o2).width-=10;
+						((RocketShip)o2).height-=10;
+							} else {
+								((RocketShip)o2).speed+=2;
+							}
+						}
 					} else if ((o2 instanceof PowerUp && o1 instanceof RocketShip)) {
 						o2.isAlive = false;
-						// o2.projectileSpeed+=10;
+						int random = new Random().nextInt(2);
+						if (random==1) {
+						((RocketShip)o1).projectileSpeed+=5;
+						} else {
+							if (((RocketShip)o1).width>20) {
+								((RocketShip)o1).width-=10;
+								((RocketShip)o1).height-=10;
+									} else {
+										((RocketShip)o1).speed+=2;
+									}
+						}
 					}
 				}
 			}

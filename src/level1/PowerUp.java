@@ -26,11 +26,11 @@ public class PowerUp extends GameObject {
 		Graphics2D g2 = (Graphics2D) g;
 		AffineTransform oldRotation = g2.getTransform();
 		AffineTransform newRotation = new AffineTransform();
-		rotation += 10;
+		rotation += 1;
 		newRotation.rotate(rotation, x + (width / 2), y + (height / 2));
 		g2.setColor(Color.GREEN);
 		g2.setTransform(newRotation);
-		g2.drawRect(x, y, width, height);
+		g2.draw3DRect(x, y, width, height, true);
 		g2.setTransform(oldRotation);
 		if (rotation > 360) {
 			rotation -= 360;
